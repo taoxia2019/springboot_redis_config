@@ -1,11 +1,11 @@
- ### 1.ÒÀÀµ
+ ### 1.ä¾èµ–
 ```
- <!-- Spring Boot RedisÒÀÀµ -->
-        <!-- ×¢Òâ£º1.5°æ±¾µÄÒÀÀµºÍ2.0µÄÒÀÀµ²»Ò»Ñù£¬×¢Òâ¿´Å¶ 1.5ÎÒ¼ÇµÃÃû×ÖÀïÃæÓ¦¸ÃÃ»ÓĞ¡°data¡±, 2.0±ØĞëÊÇ¡°spring-boot-starter-data-redis¡± Õâ¸ö²ÅĞĞ-->
+ <!-- Spring Boot Redisä¾èµ– -->
+        <!-- æ³¨æ„ï¼š1.5ç‰ˆæœ¬çš„ä¾èµ–å’Œ2.0çš„ä¾èµ–ä¸ä¸€æ ·ï¼Œæ³¨æ„çœ‹å“¦ 1.5æˆ‘è®°å¾—åå­—é‡Œé¢åº”è¯¥æ²¡æœ‰â€œdataâ€, 2.0å¿…é¡»æ˜¯â€œspring-boot-starter-data-redisâ€ è¿™ä¸ªæ‰è¡Œ-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
-            <!-- 1.5µÄ°æ±¾Ä¬ÈÏ²ÉÓÃµÄÁ¬½Ó³Ø¼¼ÊõÊÇjedis  2.0ÒÔÉÏ°æ±¾Ä¬ÈÏÁ¬½Ó³ØÊÇlettuce, ÔÚÕâÀï²ÉÓÃjedis£¬ËùÒÔĞèÒªÅÅ³ılettuceµÄjar -->
+            <!-- 1.5çš„ç‰ˆæœ¬é»˜è®¤é‡‡ç”¨çš„è¿æ¥æ± æŠ€æœ¯æ˜¯jedis  2.0ä»¥ä¸Šç‰ˆæœ¬é»˜è®¤è¿æ¥æ± æ˜¯lettuce, åœ¨è¿™é‡Œé‡‡ç”¨jedisï¼Œæ‰€ä»¥éœ€è¦æ’é™¤lettuceçš„jar -->
             <exclusions>
                 <exclusion>
                     <groupId>redis.clients</groupId>
@@ -18,22 +18,22 @@
             </exclusions>
         </dependency>
         
-        <!-- Ìí¼Ójedis¿Í»§¶Ë -->
+        <!-- æ·»åŠ jediså®¢æˆ·ç«¯ -->
         <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
         </dependency>
 
-        <!--spring2.0¼¯³ÉredisËùĞècommon-pool2-->
-        <!-- ±ØĞë¼ÓÉÏ£¬jedisÒÀÀµ´Ë  -->
-        <!-- spring boot 2.0 µÄ²Ù×÷ÊÖ²áÓĞ±ê×¢ ´ó¼Ò¿ÉÒÔÈ¥¿´¿´ µØÖ·ÊÇ£ºhttps://docs.spring.io/spring-boot/docs/2.0.3.RELEASE/reference/htmlsingle/-->
+        <!--spring2.0é›†æˆredisæ‰€éœ€common-pool2-->
+        <!-- å¿…é¡»åŠ ä¸Šï¼Œjedisä¾èµ–æ­¤  -->
+        <!-- spring boot 2.0 çš„æ“ä½œæ‰‹å†Œæœ‰æ ‡æ³¨ å¤§å®¶å¯ä»¥å»çœ‹çœ‹ åœ°å€æ˜¯ï¼šhttps://docs.spring.io/spring-boot/docs/2.0.3.RELEASE/reference/htmlsingle/-->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-pool2</artifactId>
             <version>2.5.0</version>
         </dependency>
 
-        <!-- ½«×÷ÎªRedis¶ÔÏóĞòÁĞ»¯Æ÷ -->
+        <!-- å°†ä½œä¸ºRediså¯¹è±¡åºåˆ—åŒ–å™¨ -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
@@ -41,29 +41,29 @@
         </dependency>
         
 ```
-### 2.application.propertiesÉèÖÃ
+### 2.application.propertiesè®¾ç½®
 ```
-#Redis·şÎñÆ÷Ö÷»úµØÖ·
+#RedisæœåŠ¡å™¨ä¸»æœºåœ°å€
 spring.redis.host=192.168.119.132
-#Redis·şÎñÁ¬½ÓÃÜÂë
+#RedisæœåŠ¡è¿æ¥å¯†ç 
 spring.redis.password=football
 spring.redis.database=0
-#Redis¶ÔÍâ·şÎñ¶Ë¿Ú
+#Rediså¯¹å¤–æœåŠ¡ç«¯å£
 spring.redis.port=6379
 ```
 
-### 3.²âÊÔÊ¹ÓÃRedisTemplate
+### 3.æµ‹è¯•ä½¿ç”¨RedisTemplate
 ```
-//×¢Èë
+//æ³¨å…¥
 @Autowired
     private RedisTemplate<Object,Object> redisTemplate;
 
-//²âÊÔ
+//æµ‹è¯•
 	@Test
 	public void testSet(){
-        //ÖØĞÂ¶¨Òå×Ö·û´®ÏµÁĞ»¯
+        //é‡æ–°å®šä¹‰å­—ç¬¦ä¸²ç³»åˆ—åŒ–
         RedisSerializer redisSerializer=new StringRedisSerializer();
-        //½«×Ö·û´®ĞòÁĞ»¯¼Óµ½Ä£°åkeyÖĞ
+        //å°†å­—ç¬¦ä¸²åºåˆ—åŒ–åŠ åˆ°æ¨¡æ¿keyä¸­
         redisTemplate.setKeySerializer(redisSerializer);
 		this.redisTemplate.opsForValue().set("redis","javaredis");
 	}
